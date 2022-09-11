@@ -2,13 +2,12 @@ import jwt from "jsonwebtoken";
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "./prisma";
 
-export const valideRoute = (handler) => {
+export const validateRoute = (handler) => {
   return async (req: NextApiRequest, res: NextApiResponse) => {
     const token = req.cookies.ACCESS_TOKEN;
     // destructure access token, and rename it to token
     // atau bisa ditulis juga kayak gini
     // const { ACCESS_TOKEN: token } = req.cookies;
-
     if (token) {
       let user;
       try {
